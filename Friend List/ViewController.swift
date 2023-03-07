@@ -28,7 +28,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             friends.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
 //            tableView.reloadData()DispatchQueue.main.async{
-                self.friendsCount.text = "You have " + String(self.friends.count) + " friends"
+            self.friendsCount.text = "You have " + String(self.friends.count) + (self.friends.count <= 1 ? " friend" : " friends")
 //                self.tableView.reloadData()
 //            }
         }
@@ -79,7 +79,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 }
                 
                 DispatchQueue.main.async{
-                    self.friendsCount.text = "You have " + String(self.friends.count) + " friends"
+                    self.friendsCount.text = "You have " + String(self.friends.count) + (self.friends.count <= 1 ? " friend" : " friends")
                     self.tableView.reloadData()
                 }
                 
