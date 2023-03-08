@@ -11,6 +11,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     var friends: [Friend] = []
     
+    var initCount = 0;
+    
     @IBOutlet weak var friendsCount: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
@@ -34,6 +36,23 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.separatorStyle = .none
+        
+        let refreshControl = UIRefreshControl()
+            refreshControl.addTarget(self, action: #selector(doSomething), for: .valueChanged)
+            
+            // this is the replacement of implementing: "collectionView.addSubview(refreshControl)"
+            tableView.refreshControl = refreshControl
+    }
+    
+    @objc func doSomething(refreshControl: UIRefreshControl) {
+        if friends.count != initCount {
+            friends.removeAll()
+            tableView.reloadData()
+            fetch()
+        }
+        
+        // somewhere in your code you might need to call:
+        refreshControl.endRefreshing()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -75,6 +94,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 }
                 
                 DispatchQueue.main.async{
+                    self.initCount = self.friends.count
                     self.friendsCount.text = "You have " + String(self.friends.count) + (self.friends.count <= 1 ? " friend" : " friends")
                     self.tableView.reloadData()
                 }
