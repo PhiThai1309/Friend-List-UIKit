@@ -39,7 +39,7 @@
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Would you like to delete this friend from your list?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YY1-rj-YnA">
-                            <rect key="frame" x="0.0" y="169" width="345" height="40.666666666666657"/>
+                            <rect key="frame" x="0.0" y="164" width="345" height="40.666666666666657"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -55,9 +55,10 @@
                             </connections>
                         </button>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="success2240Px" translatesAutoresizingMaskIntoConstraints="NO" id="H2p-Gl-R4l">
-                            <rect key="frame" x="120" y="44" width="105" height="105"/>
+                            <rect key="frame" x="122.66666666666666" y="44" width="100" height="100"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="H2p-Gl-R4l" secondAttribute="height" multiplier="1:1" id="7Nz-u7-11R"/>
+                                <constraint firstAttribute="height" constant="100" id="QKj-DU-ZhN"/>
                             </constraints>
                         </imageView>
                     </subviews>
@@ -66,7 +67,6 @@
                         <constraint firstAttribute="bottom" secondItem="UWe-yQ-Sjs" secondAttribute="bottom" constant="30" id="4WA-Tp-r5q"/>
                         <constraint firstAttribute="trailing" secondItem="YY1-rj-YnA" secondAttribute="trailing" id="6IY-r4-77z"/>
                         <constraint firstItem="YY1-rj-YnA" firstAttribute="leading" secondItem="YCs-o3-FIP" secondAttribute="leading" id="71x-8O-daG"/>
-                        <constraint firstItem="H2p-Gl-R4l" firstAttribute="leading" secondItem="YCs-o3-FIP" secondAttribute="leading" constant="120" id="AdR-eZ-Gnj"/>
                         <constraint firstItem="H2p-Gl-R4l" firstAttribute="top" secondItem="Upa-SK-m5b" secondAttribute="bottom" id="FHu-GF-2Fo"/>
                         <constraint firstAttribute="trailing" secondItem="Upa-SK-m5b" secondAttribute="trailing" constant="14" id="I14-i3-xKn"/>
                         <constraint firstAttribute="height" constant="300" id="QG7-oW-M2i"/>
