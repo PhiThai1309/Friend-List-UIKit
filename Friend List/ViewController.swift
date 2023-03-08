@@ -16,7 +16,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func onClickHandler(_ cell: TableViewCell) {
         if let indexPath = tableView.indexPath(for: cell) {
-            print("Radio Tapped at \(indexPath)")
+            print("Tapped at \(indexPath)")
             let alert = CustomAlert(tableView: tableView, friends: friends, indexPath: indexPath)
             alert.delegate = self
             alert.show()
@@ -34,7 +34,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.separatorStyle = .none
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -54,7 +54,10 @@ class CustomAlert: UIViewController {
     }
     
     func show() {
-        UIApplication.shared.windows.first?.rootViewController?.present(self, animated: true, completion: nil)
+        let scenes = UIApplication.shared.connectedScenes
+        let windowScene = scenes.first as? UIWindowScene
+        
+        windowScene?.keyWindow?.rootViewController?.present(self, animated: true)
     }
     
 }
