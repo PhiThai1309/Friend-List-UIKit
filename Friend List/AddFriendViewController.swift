@@ -14,7 +14,19 @@ class AddFriendViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    @IBAction func AddOnClickHandle(_ sender: Any) {
+    @IBAction func BackBtnHandler(_ sender: Any) {
         self.dismiss(animated: true)
+    }
+    @IBAction func AddOnClickHandle(_ sender: Any) {
+        if(EmailInputField.text != "" && NameInputField.text != "") {
+            self.dismiss(animated: true)
+        } else {
+            let alert = UIAlertController(title: "Error!",
+                                          message: "Please fill in all field",
+                                          preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Return", style: .default))
+            present(alert, animated: true, completion: nil)
+        }
+        
     }
 }

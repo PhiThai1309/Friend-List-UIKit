@@ -214,6 +214,9 @@
                                         <buttonConfiguration key="configuration" style="plain" image="chevron.left" catalog="system">
                                             <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="BackBtnHandler:" destination="UAa-Fn-9eT" eventType="touchUpInside" id="oeG-XV-h6T"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemCyanColor"/>
