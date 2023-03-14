@@ -87,10 +87,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                     return
                 }
                 
-                let friendsList = try? JSONDecoder().decode([Friend].self, from: data)
-                for i in 0..<friendsList!.count{
-                    let new = Friend(id: friendsList![i].id, name: friendsList![i].name, email: friendsList![i].email, gender: friendsList![i].gender, status: friendsList![i].status)
-                    self.friends.append(new)
+                do {
+                    self.friends = try JSONDecoder().decode([Friend].self, from: data)
+                } catch {
+                    
                 }
                 
                 DispatchQueue.main.async{
