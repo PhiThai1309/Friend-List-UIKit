@@ -38,10 +38,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.separatorStyle = .none
         
         let refreshControl = UIRefreshControl()
-            refreshControl.addTarget(self, action: #selector(doSomething), for: .valueChanged)
-            
-            // this is the replacement of implementing: "collectionView.addSubview(refreshControl)"
-            tableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(doSomething), for: .valueChanged)
+        
+        // this is the replacement of implementing: "collectionView.addSubview(refreshControl)"
+        tableView.refreshControl = refreshControl
     }
     
     @objc func doSomething(refreshControl: UIRefreshControl) {
