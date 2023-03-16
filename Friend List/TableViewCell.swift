@@ -26,10 +26,10 @@ class TableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         view.layer.shadowColor = UIColor.black.cgColor
-        view.layer.shadowOpacity = 0.5
+        view.layer.shadowOpacity = 0.2
         view.layer.shadowOffset = .zero
-        view.layer.shadowRadius = 5
-        view.layer.cornerRadius = 5
+        view.layer.shadowRadius = 4
+        view.layer.cornerRadius = 4
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
