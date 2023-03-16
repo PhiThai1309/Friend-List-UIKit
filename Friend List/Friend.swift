@@ -8,14 +8,13 @@
 import Foundation
 
 struct Friend: Codable {
-    var id: integer_t
+    var id: integer_t?
     var name: String
     var email: String
     var gender: String
     var status: String
     
-    init(id: integer_t, name: String, email: String, gender: String, status: String) {
-        self.id = id
+    init(name: String, email: String, gender: String, status: String) {
         self.name = name
         self.email = email
         self.gender = gender

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, TableViewCellDelegate, alertDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, TableViewCellDelegate, alertDelegate, addViewDelegate, UINavigationControllerDelegate {
     
     var friends: [Friend] = []
     
@@ -16,6 +16,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var friendsCount: UILabel!
     @IBOutlet weak var addBtn: UIButton!
     @IBOutlet weak var tableView: UITableView!
+    
+    func addNewHandler() {
+        friends.removeAll()
+        fetch()
+    }
     
     func onClickHandler(_ cell: TableViewCell) {
         if let indexPath = tableView.indexPath(for: cell) {
@@ -45,19 +50,26 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.refreshControl = refreshControl
     }
     
+    
     @objc func doSomething(refreshControl: UIRefreshControl) {
         if friends.count != initCount {
             friends.removeAll()
             tableView.reloadData()
             fetch()
         }
-        
-        // somewhere in your code you might need to call:
         refreshControl.endRefreshing()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         fetch()
+    }
+    
+    @IBAction func addBtnHandler(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "AddFriendView") as! AddFriendViewController
+        vc.delegate = self
+        self.present(vc, animated: true)
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
