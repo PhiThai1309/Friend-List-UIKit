@@ -2,7 +2,7 @@
 An UIKit application that manage a list of friends available via GOREST API
 
 <p align="center">
-  <img width="300" alt="image" src="https://user-images.githubusercontent.com/71892904/225554077-d49ad1d3-f914-48ce-b821-2e3fd025e366.png">
+  <img width="300" alt="image" src="https://user-images.githubusercontent.com/71892904/225561828-57806693-8391-4401-ba8b-0feb68477ecf.png">
   <img width="300" alt="image" src="https://user-images.githubusercontent.com/71892904/225554112-23b0af6a-ed2f-4c43-bcfb-a278e1bfc626.png">
   <img width="300" alt="image" src="https://user-images.githubusercontent.com/71892904/225554189-1be53e55-d057-47b8-b5a7-3917a5e5e59d.png">
 </p>
