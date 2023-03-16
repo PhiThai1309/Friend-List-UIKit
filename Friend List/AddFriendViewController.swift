@@ -13,6 +13,9 @@ protocol addViewDelegate {
 
 class AddFriendViewController: UIViewController, UINavigationControllerDelegate {
     
+    @IBOutlet weak var femaleCheckBox: CheckBox!
+    @IBOutlet weak var maleCheckBox: CheckBox!
+    
     @IBOutlet weak var EmailInputField: UITextField!
     @IBOutlet weak var NameInputField: UITextField!
     
@@ -27,8 +30,8 @@ class AddFriendViewController: UIViewController, UINavigationControllerDelegate 
         self.dismiss(animated: true)
     }
     @IBAction func AddOnClickHandle(_ sender: Any) {
-        if EmailInputField.text != "" && NameInputField.text != "" {
-            addFriend(name: NameInputField.text!, email: EmailInputField.text!, gender: "Male")
+        if EmailInputField.text != "" && NameInputField.text != "" && (femaleCheckBox.check || maleCheckBox.check){
+            addFriend(name: NameInputField.text!, email: EmailInputField.text!, gender: femaleCheckBox.check ? "female" : "male")
             
             self.dismiss(animated: true)
         } else {
@@ -47,7 +50,7 @@ class AddFriendViewController: UIViewController, UINavigationControllerDelegate 
         let token = "6e892f37b27d3e12257dabddab6806ffce8a0705d4dce4369ed94e672611b6ea"
         
         // Add data to the model
-        let uploadDataModel = Friend(name: name, email: email, gender: "Male", status: "active")
+        let uploadDataModel = Friend(name: name, email: email, gender: gender, status: "active")
         
         // Convert model to JSON data
         guard let jsonData = try? JSONEncoder().encode(uploadDataModel) else {
@@ -78,4 +81,19 @@ class AddFriendViewController: UIViewController, UINavigationControllerDelegate 
         }
         task.resume()
     }
+    
+    @IBAction func MaleClickHandler(_ sender: Any) {
+        if(femaleCheckBox.check){
+            femaleCheckBox.check = false
+            maleCheckBox.check = true
+        }
+    }
+    
+    @IBAction func FemaleClickHandler(_ sender: Any) {
+        if(maleCheckBox.check){
+            femaleCheckBox.check = true
+            maleCheckBox.check = false
+        }
+    }
+    
 }

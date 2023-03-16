@@ -52,11 +52,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     
     @objc func doSomething(refreshControl: UIRefreshControl) {
-        if friends.count != initCount {
+//        if friends.count != initCount {
             friends.removeAll()
             tableView.reloadData()
             fetch()
-        }
+//        }
         refreshControl.endRefreshing()
     }
     

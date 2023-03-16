@@ -17,6 +17,7 @@
 		3F0C084A29B5DC0600844280 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0C084929B5DC0600844280 /* Friend.swift */; };
 		3FB4486129B6DD0200C427AC /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB4485F29B6DD0200C427AC /* CustomAlert.swift */; };
 		3FB4486229B6DD0200C427AC /* CustomAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FB4486029B6DD0200C427AC /* CustomAlert.xib */; };
+		3FC8EBDF29C2CFB0002FF25F /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC8EBDE29C2CFB0002FF25F /* CheckBox.swift */; };
 		3FE5C7D429B5F073003C4F28 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE5C7D329B5F073003C4F28 /* TableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		3F0C084929B5DC0600844280 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		3FB4485F29B6DD0200C427AC /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		3FB4486029B6DD0200C427AC /* CustomAlert.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomAlert.xib; sourceTree = "<group>"; };
+		3FC8EBDE29C2CFB0002FF25F /* CheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
 		3FE5C7D329B5F073003C4F28 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -50,6 +52,7 @@
 		3F01FB4C29B5D9E4005EA13A = {
 			isa = PBXGroup;
 			children = (
+				3FC8EBDE29C2CFB0002FF25F /* CheckBox.swift */,
 				3F01FB5729B5D9E4005EA13A /* Friend List */,
 				3F01FB5629B5D9E4005EA13A /* Products */,
 			);
@@ -154,6 +157,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FC8EBDF29C2CFB0002FF25F /* CheckBox.swift in Sources */,
 				3FE5C7D429B5F073003C4F28 /* TableViewCell.swift in Sources */,
 				3F047D9729C07CD200778E58 /* AddFriendViewController.swift in Sources */,
 				3F01FB5D29B5D9E4005EA13A /* ViewController.swift in Sources */,
