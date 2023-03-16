@@ -18,7 +18,7 @@ An UIKit application that manage a list of friends available via GOREST API
 
 ## Overview
 
-This is a small project that I develop to learn about UIKit and how to perfrom a HTTPs request using Swift. This application will fetch a list of 10 people and display it using a table view. User will be able to add new friend and changes will reflect automatically in the table view.
+This is a small project that I develop to learn about UIKit and how to perfrom a HTTPs request using Swift. This application will fetch a list of 10 people and render into a table view. User will be able to add new friend and changes will reflect automatically in the table view.
 
 ### Functionalities
 
