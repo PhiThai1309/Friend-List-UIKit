@@ -8,7 +8,7 @@
 import Foundation
 
 struct Friend: Codable {
-    var id: integer_t?
+    var id: Int?
     var name: String
     var email: String
     var gender: String

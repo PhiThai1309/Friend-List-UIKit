@@ -17,6 +17,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var addBtn: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
+    //MARK: ViewController delegate
     func addNewHandler() {
         print("return")
         friends.removeAll()
@@ -25,7 +26,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func onClickHandler(_ cell: TableViewCell) {
         if let indexPath = tableView.indexPath(for: cell) {
-            print("Tapped at \(indexPath)")
             let alert = CustomAlert(tableView: tableView, friends: friends, indexPath: indexPath)
             alert.delegate = self
             alert.show()
@@ -34,12 +34,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func onCallBack(check: Bool, indexPath: IndexPath) {
         if check {
+            deleteFriend(index: friends[indexPath.row].id!)
             friends.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
-            self.friendsCount.text = "You have " + String(self.friends.count) + (self.friends.count <= 1 ? " friend" : " friends")
+            setFriendsNo(num: friends.count)
         }
     }
     
+    //MARK: View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.separatorStyle = .none
@@ -51,6 +53,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.refreshControl = refreshControl
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        fetch()
+    }
+    
+    
+    func setFriendsNo(num: Int) {
+        self.friendsCount.text = "You have " + String(num) + (num <= 1 ? " friend" : " friends")
+    }
     
     @objc func doSomething(refreshControl: UIRefreshControl) {
 //        if friends.count != initCount {
@@ -59,10 +69,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             fetch()
 //        }
         refreshControl.endRefreshing()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        fetch()
     }
     
     @IBAction func addBtnHandler(_ sender: Any) {
@@ -74,6 +80,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
     }
     
+    //MARK: Table view logic
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return friends.count
     }
@@ -91,6 +98,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return cell
     }
     
+    //MARK: HTTPS request
     func fetch() {
         // Create a URLRequest for an API endpoint
         let url = URL(string: "https://gorest.co.in/public/v2/users")!
@@ -116,8 +124,32 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 
                 DispatchQueue.main.async{
                     self.initCount = self.friends.count
-                    self.friendsCount.text = "You have " + String(self.friends.count) + (self.friends.count <= 1 ? " friend" : " friends")
+                    self.setFriendsNo(num: self.friends.count)
                     self.tableView.reloadData()
+                }
+                
+            } else {
+                print(error!)
+            }
+        }
+        task.resume()
+    }
+    
+    func deleteFriend(index: Int) {
+        let url = URL(string: "https://gorest.co.in/public/v2/users/" + String(index))!
+        print("https://gorest.co.in/public/v2/users/" + String(index))
+        let token = "6e892f37b27d3e12257dabddab6806ffce8a0705d4dce4369ed94e672611b6ea"
+        
+        var request = URLRequest(url: url)
+        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        request.httpMethod = "DELETE"
+        
+        let task = URLSession.shared.dataTask(with: request) {
+            (data, response, error) in
+            if error == nil, let data = data, let response = response as? HTTPURLResponse {
+                
+                if (response.statusCode != 204) {
+                    return
                 }
                 
             } else {
