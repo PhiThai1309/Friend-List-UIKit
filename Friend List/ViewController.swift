@@ -70,15 +70,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let vc = storyboard.instantiateViewController(withIdentifier: "AddFriendView") as! AddFriendViewController
         vc.delegate = self
         
-        guard let playGameViewController = storyboard.instantiateViewController(withIdentifier: "AddFriendView") as? AddFriendViewController else {
-            print("This means you haven't set your view controller identifier properly.")
-            return
-        }
-        guard let navigationController = navigationController else {
-            print("This means you current view controller doesn't have a navigation controller")
-            return
-        }
-        
         self.navigationController?.pushViewController(vc, animated: true)
         
     }
