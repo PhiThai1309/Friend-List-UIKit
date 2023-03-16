@@ -18,6 +18,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var tableView: UITableView!
     
     func addNewHandler() {
+        print("return")
         friends.removeAll()
         fetch()
     }
@@ -68,7 +69,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "AddFriendView") as! AddFriendViewController
         vc.delegate = self
-        self.present(vc, animated: true)
+        
+        guard let playGameViewController = storyboard.instantiateViewController(withIdentifier: "AddFriendView") as? AddFriendViewController else {
+            print("This means you haven't set your view controller identifier properly.")
+            return
+        }
+        guard let navigationController = navigationController else {
+            print("This means you current view controller doesn't have a navigation controller")
+            return
+        }
+        
+        self.navigationController?.pushViewController(vc, animated: true)
         
     }
     

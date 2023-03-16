@@ -52,7 +52,6 @@
 		3F01FB4C29B5D9E4005EA13A = {
 			isa = PBXGroup;
 			children = (
-				3FC8EBDE29C2CFB0002FF25F /* CheckBox.swift */,
 				3F01FB5729B5D9E4005EA13A /* Friend List */,
 				3F01FB5629B5D9E4005EA13A /* Products */,
 			);
@@ -69,6 +68,7 @@
 		3F01FB5729B5D9E4005EA13A /* Friend List */ = {
 			isa = PBXGroup;
 			children = (
+				3FC8EBDE29C2CFB0002FF25F /* CheckBox.swift */,
 				3F01FB5829B5D9E4005EA13A /* AppDelegate.swift */,
 				3F01FB5A29B5D9E4005EA13A /* SceneDelegate.swift */,
 				3F01FB5C29B5D9E4005EA13A /* ViewController.swift */,

@@ -27,13 +27,12 @@ class AddFriendViewController: UIViewController, UINavigationControllerDelegate 
         navigationController?.delegate = self
     }
     @IBAction func BackBtnHandler(_ sender: Any) {
-        self.dismiss(animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
+    
     @IBAction func AddOnClickHandle(_ sender: Any) {
         if EmailInputField.text != "" && NameInputField.text != "" && (femaleCheckBox.check || maleCheckBox.check){
             addFriend(name: NameInputField.text!, email: EmailInputField.text!, gender: femaleCheckBox.check ? "female" : "male")
-            
-            self.dismiss(animated: true)
         } else {
             let alert = UIAlertController(title: "Error!",
                                           message: "Please fill in all field",
@@ -71,9 +70,25 @@ class AddFriendViewController: UIViewController, UINavigationControllerDelegate 
                 
                 if (response.statusCode != 201) {
                     print("un-success")
+                    DispatchQueue.main.async {
+                        let alert = UIAlertController(title: "Error!",
+                                                      message: "Please check your input",
+                                                      preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "Return", style: .default))
+                        self.present(alert, animated: true, completion: nil)
+                    }
                     return
                 } else {
                     print("success")
+                    DispatchQueue.main.async {
+                        let alert = UIAlertController(title: "Success",
+                                                      message: "New friend added",
+                                                      preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {_ in
+                            self.navigationController?.popViewController(animated: true)
+                        }))
+                        self.present(alert, animated: true, completion: nil)
+                    }
                 }
             } else {
                 print(error!)
