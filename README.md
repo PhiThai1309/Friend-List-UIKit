@@ -37,7 +37,6 @@ This is a small project that I develop to learn about UIKit and how to perfrom a
 - User can view the details of each friend as well as update their information in the details View. The updated information will also trigger the API to change accordingly
 <p align="center">
   <img width="300" alt="image" src="https://user-images.githubusercontent.com/71892904/225863623-8ee4c4e9-d8f4-47df-8f52-35413c0a91d1.png">
-  <img width="300" alt="image" src="https://user-images.githubusercontent.com/71892904/225863770-ea9ac2a5-70e1-4715-99ff-9f04a3fbfdc5.png">
   <img width="300" alt="image" src="https://user-images.githubusercontent.com/71892904/225864310-010bb93f-cc15-46cb-8a6f-dd8c37ad6e84.png">
 </p>
 
