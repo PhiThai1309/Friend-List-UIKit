@@ -52,6 +52,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         // this is the replacement of implementing: "collectionView.addSubview(refreshControl)"
         tableView.refreshControl = refreshControl
+        
+        //Enable swipe to go back
+        self.navigationController?.interactivePopGestureRecognizer!.delegate = nil
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -26,7 +26,6 @@ class DetailsViewController: UIViewController, UINavigationBarDelegate {
         super.viewDidLoad()
         navigationBar.delegate = self
         navigationTitle.title = friend?.name
-
         
         if let value = friend {
             idField.text = String(value.id!)
