@@ -11,7 +11,7 @@ An UIKit application that manage a list of friends available via GOREST API
 
 - [Overview](#overview)
 - [Functionalities](#Functionalities)
-- [Limitations](#Limitation)
+- [Limitations](#Limitations)
 - [Built with](#built-with)
 - [Author](#author)
 - [References](#References)
