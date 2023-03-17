@@ -215,43 +215,111 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zgZ-ps-9L8">
-                                                <rect key="frame" x="0.0" y="39.333333333333371" width="365" height="34"/>
+                                                <rect key="frame" x="0.0" y="37.666666666666629" width="365" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fWe-b5-6OI">
-                                                <rect key="frame" x="0.0" y="92.333333333333371" width="365" height="20.333333333333329"/>
+                                                <rect key="frame" x="0.0" y="88.666666666666629" width="365" height="20.333333333333329"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VJV-M5-JgW">
-                                                <rect key="frame" x="0.0" y="131.66666666666663" width="365" height="34"/>
+                                                <rect key="frame" x="0.0" y="126.33333333333337" width="365" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gender:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tnr-oy-wey">
-                                                <rect key="frame" x="0.0" y="184.33333333333337" width="365" height="20.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="177.66666666666663" width="365" height="20.333333333333343"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ce7-kw-Bkc">
-                                                <rect key="frame" x="0.0" y="223.66666666666663" width="365" height="34"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="vXE-vi-TKY">
+                                                <rect key="frame" x="0.0" y="215.33333333333337" width="365" height="40"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MH6-hc-m1W" customClass="CheckBox" customModule="Friend_List" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="MH6-hc-m1W" secondAttribute="height" multiplier="1:1" id="2rj-Sk-1Ym"/>
+                                                            <constraint firstAttribute="width" constant="40" id="ZwL-IQ-4Uk"/>
+                                                        </constraints>
+                                                        <connections>
+                                                            <action selector="MaleClickHandler:" destination="SGP-Bc-keX" eventType="valueChanged" id="72e-SB-cNy"/>
+                                                        </connections>
+                                                    </view>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Male" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q7v-KP-un4">
+                                                        <rect key="frame" x="52" y="0.0" width="58.666666666666657" height="40"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XB0-Yy-NcW" customClass="CheckBox" customModule="Friend_List" customModuleProvider="target">
+                                                        <rect key="frame" x="122.66666666666666" y="0.0" width="40" height="40"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="XB0-Yy-NcW" secondAttribute="height" multiplier="1:1" id="2Ci-hf-kTt"/>
+                                                            <constraint firstAttribute="width" constant="40" id="BYO-gj-7Wq"/>
+                                                        </constraints>
+                                                        <connections>
+                                                            <action selector="FemaleClickHandler:" destination="SGP-Bc-keX" eventType="valueChanged" id="V5l-sJ-oSR"/>
+                                                        </connections>
+                                                    </view>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Female" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QeJ-uj-0A8">
+                                                        <rect key="frame" x="174.66666666666663" y="0.0" width="190.33333333333337" height="40"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J5S-6j-Qkt">
-                                                <rect key="frame" x="0.0" y="276.66666666666663" width="365" height="20.333333333333314"/>
+                                                <rect key="frame" x="0.0" y="272.33333333333337" width="365" height="20.333333333333314"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ivo-zk-sCN">
-                                                <rect key="frame" x="0.0" y="316" width="365" height="34"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="wYw-GU-Mw6">
+                                                <rect key="frame" x="0.0" y="310" width="365" height="40"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wc6-nW-Ul4" customClass="CheckBox" customModule="Friend_List" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="wc6-nW-Ul4" secondAttribute="height" multiplier="1:1" id="5NM-pW-qD0"/>
+                                                            <constraint firstAttribute="width" constant="40" id="kCJ-hd-sQV"/>
+                                                        </constraints>
+                                                        <connections>
+                                                            <action selector="ActiveClickHandler:" destination="SGP-Bc-keX" eventType="valueChanged" id="H51-fQ-Sqp"/>
+                                                        </connections>
+                                                    </view>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Active" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X8w-Xv-EuE">
+                                                        <rect key="frame" x="51.999999999999993" y="0.0" width="71.333333333333314" height="40"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cJ2-jL-Qye" customClass="CheckBox" customModule="Friend_List" customModuleProvider="target">
+                                                        <rect key="frame" x="135.33333333333334" y="0.0" width="40" height="40"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="40" id="p8n-fn-B5F"/>
+                                                            <constraint firstAttribute="width" secondItem="cJ2-jL-Qye" secondAttribute="height" multiplier="1:1" id="tVp-Sk-bUZ"/>
+                                                        </constraints>
+                                                        <connections>
+                                                            <action selector="InactiveClickHandler:" destination="SGP-Bc-keX" eventType="valueChanged" id="s2D-8r-g9a"/>
+                                                        </connections>
+                                                    </view>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Inactive" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ldL-ft-TzR">
+                                                        <rect key="frame" x="187.33333333333337" y="0.0" width="177.66666666666663" height="40"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="350" id="8Sx-xk-C2S"/>
@@ -313,14 +381,16 @@
                     </view>
                     <size key="freeformSize" width="393" height="1300"/>
                     <connections>
+                        <outlet property="activeCheckBox" destination="wc6-nW-Ul4" id="UAZ-bg-dpT"/>
                         <outlet property="backBtn" destination="B9O-Fh-KpD" id="6Do-Xt-Toi"/>
                         <outlet property="emailField" destination="VJV-M5-JgW" id="ftK-p9-hEI"/>
-                        <outlet property="genderField" destination="ce7-kw-Bkc" id="rjY-UM-n1X"/>
+                        <outlet property="femaleCheckBox" destination="XB0-Yy-NcW" id="1pc-av-MGs"/>
                         <outlet property="imageView" destination="pXq-wa-N5I" id="ofq-jH-4Yl"/>
+                        <outlet property="inactiveCheckBox" destination="cJ2-jL-Qye" id="1Dr-7w-w7b"/>
+                        <outlet property="maleCheckBox" destination="MH6-hc-m1W" id="9PA-2n-H9c"/>
                         <outlet property="nameField" destination="zgZ-ps-9L8" id="ivq-jT-0Mf"/>
                         <outlet property="navigationBar" destination="xMo-yB-Qi3" id="8dZ-Pp-aWO"/>
                         <outlet property="navigationTitle" destination="8MB-h9-7o0" id="hjj-kO-NgT"/>
-                        <outlet property="statusField" destination="Ivo-zk-sCN" id="cmv-RC-mbo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M1I-YS-4i0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

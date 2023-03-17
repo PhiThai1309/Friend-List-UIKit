@@ -10,17 +10,19 @@ import UIKit
 
 class DetailsViewController: UIViewController, UINavigationBarDelegate {
     
+    @IBOutlet weak var inactiveCheckBox: CheckBox!
+    @IBOutlet weak var activeCheckBox: CheckBox!
+    @IBOutlet weak var femaleCheckBox: CheckBox!
+    @IBOutlet weak var maleCheckBox: CheckBox!
     @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var navigationTitle: UINavigationItem!
     @IBOutlet weak var backBtn: UIButton!
-    @IBOutlet weak var statusField: UITextField!
-    @IBOutlet weak var genderField: UITextField!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var imageView: UIImageView!
     
     var friend: Friend?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationBar.delegate = self
@@ -29,21 +31,32 @@ class DetailsViewController: UIViewController, UINavigationBarDelegate {
         if let value = friend {
             nameField.text = value.name
             emailField.text = value.email
-            genderField.text = value.gender
-            statusField.text = value.status
             imageView.image = UIImage(named: value.gender + "-placeholder")
+            if friend?.gender == "male" {
+                maleCheckBox.check = true
+            } else {
+                femaleCheckBox.check = true
+            }
+            
+            if friend?.status == "active" {
+                activeCheckBox.check = true
+            } else {
+                inactiveCheckBox.check = true
+            }
+//            maleCheckBox.check = friend?.gender == "male" ? true : false
+//            femaleCheckBox.check = friend?.gender == "female" ? true : false
         }
     }
     
     @IBAction func backClickHandler(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
-
+        
     }
     
     func position(for bar: UIBarPositioning) -> UIBarPosition {
-     return .topAttached
+        return .topAttached
     }
-    
+
     func update(friend: Friend, id: Int) {
         // Create a URLRequest for an API endpoint
         let url = URL(string: "https://gorest.co.in/public/v2/users/" + String(id))!
@@ -60,7 +73,7 @@ class DetailsViewController: UIViewController, UINavigationBarDelegate {
         request.httpMethod = "PATCH"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = jsonData
-
+        
         let task = URLSession.shared.dataTask(with: request) {
             (data, response, error) in
             if error == nil, let data = data, let response = response as? HTTPURLResponse {
@@ -69,7 +82,7 @@ class DetailsViewController: UIViewController, UINavigationBarDelegate {
                     print("un-success")
                     DispatchQueue.main.async {
                         let alert = UIAlertController(title: "Error!",
-                                                      message: "Please check your input",
+                                                      message: "Please check your input or the server is down, please wait a moment before submit again",
                                                       preferredStyle: .alert)
                         alert.addAction(UIAlertAction(title: "Return", style: .default))
                         self.present(alert, animated: true, completion: nil)
@@ -96,10 +109,38 @@ class DetailsViewController: UIViewController, UINavigationBarDelegate {
     }
     
     @IBAction func submitClickHandler(_ sender: Any) {
-        if let name = nameField.text, let email = emailField.text, let gender = genderField.text, let status = statusField.text {
+        if let name = nameField.text, let email = emailField.text, let gender = maleCheckBox.check ? "male" : "female", let status = activeCheckBox.check ? "active" : "inactive" {
             var updateFriend = Friend(name: name, email: email, gender: gender, status: status)
             update(friend: updateFriend, id: (friend?.id)!)
         }
-        
     }
+    
+    @IBAction func MaleClickHandler(_ sender: Any) {
+        if(femaleCheckBox.check){
+            femaleCheckBox.check = false
+            maleCheckBox.check = true
+        }
+    }
+    
+    @IBAction func FemaleClickHandler(_ sender: Any) {
+        if(maleCheckBox.check){
+            femaleCheckBox.check = true
+            maleCheckBox.check = false
+        }
+    }
+    
+    @IBAction func ActiveClickHandler(_ sender: Any) {
+        if(inactiveCheckBox.check){
+            inactiveCheckBox.check = false
+            activeCheckBox.check = true
+        }
+    }
+    
+    @IBAction func InactiveClickHandler(_ sender: Any) {
+        if(activeCheckBox.check){
+            inactiveCheckBox.check = true
+            activeCheckBox.check = false
+        }
+    }
+    
 }
