@@ -45,6 +45,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.separatorStyle = .none
+        setFriendsNo(num: friends.count)
         
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(doSomething), for: .valueChanged)
@@ -63,11 +64,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     @objc func doSomething(refreshControl: UIRefreshControl) {
-//        if friends.count != initCount {
-            friends.removeAll()
-            tableView.reloadData()
-            fetch()
-//        }
+        //        if friends.count != initCount {
+        friends.removeAll()
+        tableView.reloadData()
+        fetch()
+        setFriendsNo(num: friends.count)
+        //        }
         refreshControl.endRefreshing()
     }
     
@@ -98,6 +100,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "DetailsView") as! DetailsViewController
+        vc.friend = friends[indexPath.row]
+        
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     //MARK: HTTPS request
     func fetch() {
         // Create a URLRequest for an API endpoint
@@ -113,6 +123,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             if error == nil, let data = data, let response = response as? HTTPURLResponse {
                 
                 if (response.statusCode != 200) {
+                    DispatchQueue.main.async{
+                        let alert = UIAlertController(title: "Failed to fetch!",
+                                                      message: "The API server is down, please wait a moment and pull to refresh to try again",
+                                                      preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+                            return
+                        }))
+                        self.present(alert, animated: true, completion: nil)
+                    }
                     return
                 }
                 
