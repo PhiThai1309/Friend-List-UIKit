@@ -10,6 +10,7 @@ import UIKit
 
 class DetailsViewController: UIViewController, UINavigationBarDelegate {
     
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var inactiveCheckBox: CheckBox!
     @IBOutlet weak var activeCheckBox: CheckBox!
     @IBOutlet weak var femaleCheckBox: CheckBox!
@@ -28,6 +29,11 @@ class DetailsViewController: UIViewController, UINavigationBarDelegate {
         navigationBar.delegate = self
         navigationTitle.title = String(friend?.id ?? 0)
         
+        // Do any additional setup after loading the view.
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+            
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+          
         if let value = friend {
             nameField.text = value.name
             emailField.text = value.email
@@ -43,8 +49,6 @@ class DetailsViewController: UIViewController, UINavigationBarDelegate {
             } else {
                 inactiveCheckBox.check = true
             }
-//            maleCheckBox.check = friend?.gender == "male" ? true : false
-//            femaleCheckBox.check = friend?.gender == "female" ? true : false
         }
     }
     
@@ -143,4 +147,24 @@ class DetailsViewController: UIViewController, UINavigationBarDelegate {
         }
     }
     
+    @objc func keyboardWillShow(notification: NSNotification) {
+      guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+      else {
+        // if keyboard size is not available for some reason, dont do anything
+        return
+      }
+
+      let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: keyboardSize.height , right: 0.0)
+      scrollView.contentInset = contentInsets
+      scrollView.scrollIndicatorInsets = contentInsets
+    }
+
+    @objc func keyboardWillHide(notification: NSNotification) {
+      let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
+          
+      
+      // reset back the content inset to zero after keyboard is gone
+      scrollView.contentInset = contentInsets
+      scrollView.scrollIndicatorInsets = contentInsets
+    }
 }
