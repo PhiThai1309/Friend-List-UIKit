@@ -1,9 +1,10 @@
 # Friend-List-UIKit
 An UIKit application that manage a list of friends available via GOREST API
 
+
 <p align="center">
   <img width="250" alt="image" src="https://user-images.githubusercontent.com/71892904/225561828-57806693-8391-4401-ba8b-0feb68477ecf.png">
-  <img width="250" alt="image" src="https://user-images.githubusercontent.com/71892904/225554112-23b0af6a-ed2f-4c43-bcfb-a278e1bfc626.png">
+  <img width="250" alt="image" src="https://user-images.githubusercontent.com/71892904/229410530-6239f9ea-333c-4541-a871-34882b429546.png">
   <img width="250" alt="image" src="https://user-images.githubusercontent.com/71892904/225863043-c838a8c8-cee6-41c5-acbd-3b05fb8e7427.png">
 </p>
 
@@ -25,7 +26,7 @@ This is a small project that I develop to learn about UIKit and how to perfrom a
 
 - User should be able to add new friends and the system will update the API accordingly
 <p align="center">
-  <img width="300" alt="image" src="https://user-images.githubusercontent.com/71892904/225554112-23b0af6a-ed2f-4c43-bcfb-a278e1bfc626.png">
+  <img width="300" alt="image" src="https://user-images.githubusercontent.com/71892904/229410530-6239f9ea-333c-4541-a871-34882b429546.png">
 </p>
 
 - User will be able to delete friend in the main screen and will trigger the API to reflect these changes
