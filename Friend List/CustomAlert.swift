@@ -29,6 +29,8 @@ class CustomAlert: UIViewController {
         super.init(nibName: "CustomAlert", bundle: Bundle(for: CustomAlert.self))
         self.modalPresentationStyle = .overCurrentContext
         self.modalTransitionStyle = .crossDissolve
+
+        
         self.tableView = tableView
         self.friends = friends
         self.indexPath = indexPath
@@ -40,6 +42,8 @@ class CustomAlert: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
+
         alert.layer.cornerRadius = 14
     }
     
@@ -52,12 +56,4 @@ class CustomAlert: UIViewController {
         delegate?.onCallBack(check: check, indexPath: indexPath!)
         self.dismiss(animated: true, completion: nil)
     }
-    
-    func show() {
-        let scenes = UIApplication.shared.connectedScenes
-        let windowScene = scenes.first as? UIWindowScene
-        
-        windowScene?.keyWindow?.rootViewController?.present(self, animated: true)
-    }
-    
 }
