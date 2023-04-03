@@ -10,6 +10,7 @@ import UIKit
 
 class DetailsViewController: UIViewController, UINavigationBarDelegate {
     
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var inactiveCheckBox: CheckBox!
     @IBOutlet weak var activeCheckBox: CheckBox!
     @IBOutlet weak var femaleCheckBox: CheckBox!
