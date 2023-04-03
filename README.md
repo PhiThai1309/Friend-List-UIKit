@@ -30,8 +30,8 @@ This is a small project that I develop to learn about UIKit and how to perfrom a
 
 - User will be able to delete friend in the main screen and will trigger the API to reflect these changes
 <p align="center">
-  <img width="300" alt="image" src="https://user-images.githubusercontent.com/71892904/225864163-4ba3d935-5156-4816-9dc3-7a298e4dcf4e.png">
-  <img width="300" alt="image" src="https://user-images.githubusercontent.com/71892904/225554189-1be53e55-d057-47b8-b5a7-3917a5e5e59d.png">
+  <img width="300" alt="image" src="https://user-images.githubusercontent.com/71892904/229403210-0522ec22-7209-4de0-854e-b9b5c32f9971.png">
+  <img width="300" alt="image" src="https://user-images.githubusercontent.com/71892904/229403226-be724104-d3a5-47bd-8837-d0d5a7e77b76.png">
 </p>
 
 - User can view the details of each friend as well as update their information in the details View. The updated information will also trigger the API to change accordingly
