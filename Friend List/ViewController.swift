@@ -9,8 +9,6 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, TableViewCellDelegate, alertDelegate, addViewDelegate, UINavigationControllerDelegate, ViewModelDelegate {
     
-    //    var friends: [Friend] = []
-    
     lazy var viewModel: HomeViewModel = {
         return HomeViewModel()
     }()
@@ -49,8 +47,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         if let indexPath = tableView.indexPath(for: cell) {
             let alert = CustomAlert(tableView: tableView, friends: viewModel.getFriends(), indexPath: indexPath)
             alert.delegate = self
-            //            alert.show()
-//            alert.modalPresentationStyle = .fullScreen
             self.present(alert, animated: true)
             
         }
@@ -92,12 +88,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     @objc func doSomething(refreshControl: UIRefreshControl) {
-        //        if friends.count != initCount {
         viewModel.removeFriends()
         tableView.reloadData()
         viewModel.fetch()
         setFriendsNo(num: viewModel.friends.count)
-        //        }
         refreshControl.endRefreshing()
     }
     
@@ -135,76 +129,5 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         navigationController?.pushViewController(vc, animated: true)
     }
-    
-    //    //MARK: HTTPS request
-    //    func fetch() {
-    //        // Create a URLRequest for an API endpoint
-    //        let url = URL(string: "https://gorest.co.in/public/v2/users")!
-    //        let token = "6e892f37b27d3e12257dabddab6806ffce8a0705d4dce4369ed94e672611b6ea"
-    //
-    //        var request = URLRequest(url: url)
-    //        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-    //        request.httpMethod = "GET"
-    //
-    //        let task = URLSession.shared.dataTask(with: request) {
-    //            (data, response, error) in
-    //            if error == nil, let data = data, let response = response as? HTTPURLResponse {
-    //
-    //                if (response.statusCode != 200) {
-    //                    DispatchQueue.main.async{
-    //                        let alert = UIAlertController(title: "Failed to fetch!",
-    //                                                      message: "The API server is down, please wait a moment and pull to refresh to try again",
-    //                                                      preferredStyle: .alert)
-    //                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
-    //                            return
-    //                        }))
-    //                        self.present(alert, animated: true, completion: nil)
-    //                    }
-    //                    return
-    //                }
-    //
-    //                do {
-    //                    self.friends = try JSONDecoder().decode([Friend].self, from: data)
-    //                } catch {
-    //
-    //                }
-    //
-    //                DispatchQueue.main.async{
-    //                    self.initCount = self.friends.count
-    //                    self.setFriendsNo(num: self.friends.count)
-    //                    self.tableView.reloadData()
-    //                }
-    //
-    //            } else {
-    //                print(error!)
-    //            }
-    //        }
-    //        task.resume()
-    //    }
-    
-    //    func deleteFriend(index: Int) {
-    //        let url = URL(string: "https://gorest.co.in/public/v2/users/" + String(index))!
-    //        print("https://gorest.co.in/public/v2/users/" + String(index))
-    //        let token = "6e892f37b27d3e12257dabddab6806ffce8a0705d4dce4369ed94e672611b6ea"
-    //
-    //        var request = URLRequest(url: url)
-    //        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-    //        request.httpMethod = "DELETE"
-    //
-    //        let task = URLSession.shared.dataTask(with: request) {
-    //            (data, response, error) in
-    //            if error == nil, let data = data, let response = response as? HTTPURLResponse {
-    //
-    //                if (response.statusCode != 204) {
-    //                    return
-    //                }
-    //
-    //            } else {
-    //                print(error!)
-    //            }
-    //        }
-    //        task.resume()
-    //    }
-    
 }
 
