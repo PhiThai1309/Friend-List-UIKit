@@ -68,7 +68,7 @@
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="200" horizontalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="YRh-VE-05a">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="200" horizontalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="YRh-VE-05a">
                                                                     <rect key="frame" x="0.0" y="27.333333333333339" width="210" height="15.666666666666668"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                     <nil key="textColor"/>
@@ -401,13 +401,13 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add friend" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ufo-b5-yBQ">
-                                <rect key="frame" x="130.66666666666666" y="99" width="131.99999999999997" height="32.333333333333343"/>
+                                <rect key="frame" x="130.66666666666666" y="77.666666666666671" width="131.99999999999997" height="32.333333333333329"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
                                 <color key="textColor" systemColor="secondarySystemBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LBF-VR-KJE">
-                                <rect key="frame" x="19.999999999999996" y="99" width="39.666666666666657" height="34.333333333333343"/>
+                                <rect key="frame" x="19.999999999999996" y="75.666666666666686" width="39.666666666666657" height="34.333333333333314"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="chevron.left" catalog="system">
                                     <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
@@ -497,8 +497,8 @@
                         <constraints>
                             <constraint firstItem="Ufo-b5-yBQ" firstAttribute="centerX" secondItem="opd-hH-doD" secondAttribute="centerX" id="01K-Rm-CIT"/>
                             <constraint firstAttribute="trailing" secondItem="SJq-HL-C7h" secondAttribute="trailing" id="4sz-rl-wmb"/>
-                            <constraint firstItem="LBF-VR-KJE" firstAttribute="top" secondItem="0XS-4Y-CGq" secondAttribute="top" constant="40" id="5XV-eD-vmV"/>
-                            <constraint firstItem="Ufo-b5-yBQ" firstAttribute="top" secondItem="0XS-4Y-CGq" secondAttribute="top" constant="40" id="GFa-zc-ti6"/>
+                            <constraint firstItem="LBF-VR-KJE" firstAttribute="bottom" secondItem="SJq-HL-C7h" secondAttribute="bottom" constant="-30" id="5XV-eD-vmV"/>
+                            <constraint firstItem="Ufo-b5-yBQ" firstAttribute="bottom" secondItem="SJq-HL-C7h" secondAttribute="bottom" constant="-30" id="GFa-zc-ti6"/>
                             <constraint firstItem="0XS-4Y-CGq" firstAttribute="trailing" secondItem="ZCi-0D-yo6" secondAttribute="trailing" constant="20" id="KqD-pd-03H"/>
                             <constraint firstItem="SJq-HL-C7h" firstAttribute="top" secondItem="opd-hH-doD" secondAttribute="top" id="LMa-BD-cEz"/>
                             <constraint firstItem="ZCi-0D-yo6" firstAttribute="leading" secondItem="0XS-4Y-CGq" secondAttribute="leading" constant="20" id="VMP-ek-RIb"/>
